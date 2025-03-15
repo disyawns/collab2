@@ -15,7 +15,7 @@ export function Room({ children,params }) {
     authEndpoint={"/api/liveblocks-auth?roomId="+params?.documentid}
 
     resolveUsers={async ({ userIds }) => {
-      const q=query(collection(db,'LoopUsers'),where('email','in',userIds));
+      const q=query(collection(db,'CollabUsers'),where('email','in',userIds));
       const querySnapshot=await getDocs(q);
       const userList=[];
       querySnapshot.forEach((doc)=>{
